@@ -4,9 +4,12 @@ const Footer = () => {
   return (
     <footer className="py-10 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
-        <div className="flex items-center gap-2 font-display text-xl font-bold text-foreground">
+        <div className="flex items-center justify-center gap-2">
           <Leaf className="w-5 h-5 text-primary" />
-          Hemato<span className="text-primary">veg</span>
+          <span className="text-sm font-medium tracking-widest uppercase text-primary">
+            Hematoveg
+          </span>
+          <Leaf className="w-5 h-5 text-primary" />
         </div>
         <p className="text-muted-foreground text-xs max-w-md leading-relaxed">
           Este material tem caráter exclusivamente educativo e informativo. Não
