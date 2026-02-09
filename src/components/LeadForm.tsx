@@ -13,6 +13,7 @@ const leadSchema = z.object({
 const LeadForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
@@ -38,6 +39,7 @@ const LeadForm = () => {
         body: {
           email: result.data.email,
           name: result.data.name || "",
+          website: honeypot,
         },
       });
 
@@ -103,6 +105,19 @@ const LeadForm = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
+          {/* Honeypot field - hidden from real users */}
+          <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input
+              id="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
+
           <div>
             <label
               htmlFor="name"

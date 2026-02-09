@@ -33,7 +33,16 @@ serve(async (req) => {
       );
     }
 
-    const { email, name } = body as { email: unknown; name: unknown };
+    const { email, name, website } = body as { email: unknown; name: unknown; website: unknown };
+
+    // Honeypot check - reject if filled (bots fill hidden fields)
+    if (website && typeof website === "string" && website.length > 0) {
+      // Return success to not alert the bot
+      return new Response(
+        JSON.stringify({ success: true }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
     // Validate email
     if (!email || typeof email !== "string" || email.length > 255) {
