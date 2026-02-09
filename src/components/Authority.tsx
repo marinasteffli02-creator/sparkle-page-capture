@@ -86,7 +86,7 @@ const Authority = () => {
             Hematologista e Hemoterapeuta
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            CRM 22884 · RQE 18477
+            CRM/SC 22884 · RQE 18477
           </p>
         </motion.div>
 
