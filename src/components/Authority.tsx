@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Stethoscope, Leaf, BookOpen, Users } from "lucide-react";
+import draMarinaImg from "@/assets/dra-marina.png";
 
 const credentials = [
   {
@@ -65,6 +66,29 @@ const Authority = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className="flex flex-col items-center mt-12"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <img
+            src={draMarinaImg}
+            alt="Dra Marina Steffli"
+            className="w-48 h-48 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg mb-4"
+          />
+          <p className="font-display text-lg font-bold text-foreground">
+            Dra Marina Steffli
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Hematologista e Hemoterapeuta
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            CRM 22884 · RQE 18477
+          </p>
+        </motion.div>
 
         <motion.p
           className="text-center text-xs text-muted-foreground mt-10"
